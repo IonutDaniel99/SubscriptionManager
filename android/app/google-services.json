@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "614302998318",
+    "project_id": "subscription-monitor-a0000",
+    "storage_bucket": "subscription-monitor-a0000.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:614302998318:android:95f204d49cd0a9042ee4bf",
+        "android_client_info": {
+          "package_name": "com.subscriptionmanager"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgMjEPr9_cS_FkhG3NqjOKRvpxXXfRaTE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
