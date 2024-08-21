@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 import auth from '@react-native-firebase/auth'
 import { GoogleSingInConfigs } from '../../configs/GoogleSingInConfig'
 import { GoogleSignin } from '@react-native-google-signin/google-signin'
+import { View } from 'react-native'
 export default function RootNavigation() {
     const { user, isLoading } = useSession()
     const Stack = createNativeStackNavigator()

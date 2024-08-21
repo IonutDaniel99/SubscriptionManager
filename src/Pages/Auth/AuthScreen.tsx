@@ -21,16 +21,16 @@ export default function AuthScreen() {
 
     return (
         <View>
-            <View className="w-full h-screen grid-cols-2 lg:grid lg:min-h-screen">
-                <View className="flex items-center justify-center h-1/6 bg-primary lg:h-full">
-                    <View className="flex items-center max-w-md gap-8 text-center lg:space-y-4 text-primary-foreground lg:block">
-                        <Text className="text-2xl font-bold lg:text-5xl text-foreground">Welcome Back!</Text>
-                        <Text className="hidden lg:block lg:text-xl text-foreground">
-                            Sign in to your account and start exploring our local events.
+            <View className="w-full h-full grid-cols-2 bg-white lg:grid lg:min-h-screen">
+                <View className="flex items-center justify-center w-full h-1/3 bg-primary">
+                    <View className="flex items-center w-full max-w-md gap-8 text-center lg:space-y-4 lg:block">
+                        <Text className="text-2xl font-bold text-white">Welcome Back!</Text>
+                        <Text className="w-2/3 text-xl font-bold text-center text-white">
+                            Sign in to your account and start manage your subscriptions.
                         </Text>
                     </View>
                 </View>
-                <View className="flex items-center justify-center h-5/6 lg:h-full ">
+                <View className="flex items-center justify-center h-2/3">
                     <View className="w-full max-w-md px-6 mx-auto space-y-6 lg:px-2">
                         <GoogleSigninButton
                             style={{ width: 192, height: 48 }}
