@@ -1,4 +1,4 @@
-import { User } from '@react-native-google-signin/google-signin'
+import { FirebaseAuthTypes } from '@react-native-firebase/auth'
 import { atom } from 'jotai'
 
-export const currentUserAtom = atom<User | null>()
+export const currentUserAtom = atom<FirebaseAuthTypes.User | null>()

@@ -9,9 +9,11 @@ import auth from '@react-native-firebase/auth'
 import { GoogleSingInConfigs } from '../../configs/GoogleSingInConfig'
 import { GoogleSignin } from '@react-native-google-signin/google-signin'
 export default function RootNavigation() {
-    const { user } = useSession()
+    const { user, isLoading } = useSession()
     const Stack = createNativeStackNavigator()
     GoogleSignin.configure(GoogleSingInConfigs)
+    if (isLoading) return null
+
     return (
         <NavigationContainer>
             <Stack.Navigator

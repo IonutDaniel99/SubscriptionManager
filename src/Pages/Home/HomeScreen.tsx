@@ -4,10 +4,9 @@ import useSession from '../../hooks/useSession'
 
 export default function HomeScreen() {
     const { user, removeUser } = useSession()
-
     return (
         <View className="bg-red-400">
-            <Text>{user?.user.name}</Text>
+            <Text>{user?.displayName}</Text>
             <Button title="Disconnect" onPress={removeUser} />
         </View>
     )
