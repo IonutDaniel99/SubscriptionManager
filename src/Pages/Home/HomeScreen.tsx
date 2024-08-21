@@ -1,10 +1,14 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { Button, Text, View } from 'react-native'
+import useSession from '../../hooks/useSession'
 
 export default function HomeScreen() {
+    const { user, removeUser } = useSession()
+
     return (
         <View className="bg-red-400">
-            <Text>HomeScreen</Text>
+            <Text>{user?.user.name}</Text>
+            <Button title="Disconnect" onPress={removeUser} />
         </View>
     )
 }

@@ -1,20 +1,32 @@
 import { useState, useEffect } from 'react'
-import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth'
-
+import { currentUserAtom } from '../atoms/useCurrentUserAtom'
+import { useAtom } from 'jotai'
+import { GoogleSignin } from '@react-native-google-signin/google-signin'
+import { CustomShowToast } from '../Components/Toast/ToastComponent'
 const useSession = () => {
-    const [user, setUser] = useState<FirebaseAuthTypes.User | null>(null)
-    const [loading, setLoading] = useState<boolean>(true)
+    const [user, setUser] = useAtom(currentUserAtom)
+    const [isAuth, setIsAuth] = useState<boolean>(false)
 
     useEffect(() => {
-        const unsubscribe = auth().onAuthStateChanged((currentUser) => {
+        const currentUser = GoogleSignin.getCurrentUser()
+        if (currentUser) {
             setUser(currentUser)
-            setLoading(false)
-        })
-
-        return () => unsubscribe()
+            setIsAuth(true)
+        }
     }, [])
 
-    return { user, loading }
+    const removeUser = async () => {
+        try {
+            await GoogleSignin.signOut().then(() => {
+                setIsAuth(false)
+                setUser(null)
+                CustomShowToast('Logged out')
+            })
+        } catch (error) {
+            console.error('Failed to sign out', error)
+        }
+    }
+    return { user, removeUser, isAuth }
 }
 
 export default useSession
