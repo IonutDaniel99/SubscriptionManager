@@ -1,9 +1,12 @@
 import React from 'react'
-import { Button, Image, Text, ToastAndroid, View } from 'react-native'
-import { GoogleSignin, GoogleSigninButton, statusCodes } from '@react-native-google-signin/google-signin'
+import { StyleSheet, View } from 'react-native'
+import { GoogleSignin } from '@react-native-google-signin/google-signin'
 import auth from '@react-native-firebase/auth'
+import { ImageOverlay } from '../../Components/ImageOverlay'
+import { Text } from '@ui-kitten/components'
+import { GoogleButton } from '../../Components/GoogleSigninButton/GoogleButton'
 
-export default function AuthScreen() {
+export default function AuthScreen({ navigation }: { navigation: any }) {
     const onGoogleButtonPress = async () => {
         await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true })
         const { idToken } = await GoogleSignin.signIn()
@@ -20,27 +23,37 @@ export default function AuthScreen() {
     }
 
     return (
-        <View>
-            <View>
-                <View>
-                    <View>
-                        <Text>Welcome Back!</Text>
-                        <Text>Sign in to your account and start manage your subscriptions.</Text>
-                    </View>
-                </View>
-                <View>
-                    <View>
-                        <GoogleSigninButton
-                            style={{ width: 192, height: 48 }}
-                            size={GoogleSigninButton.Size.Wide}
-                            color={GoogleSigninButton.Color.Dark}
-                            onPress={() => onGoogleButtonPress()}
-                        />
-                        <Button title="annon" onPress={() => loginAnonymous()} />
-                    </View>
-                </View>
+        <ImageOverlay style={styles.container} source={require('../../assets/backgrounds/auth-background.jpg')}>
+            <View style={styles.headerContainer}>
+                <Text category="h1" status="control">
+                    Subscription Manager
+                </Text>
+                <Text style={{ paddingTop: 16 }} category="h6" status="control">
+                    Sign in to your account
+                </Text>
             </View>
-            <Text>Login</Text>
-        </View>
+            <View style={styles.buttonContainer}>
+                <GoogleButton onPress={() => onGoogleButtonPress()} />
+            </View>
+        </ImageOverlay>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'space-between',
+        paddingVertical: 40
+    },
+    headerContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: 216
+    },
+    buttonContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
+})

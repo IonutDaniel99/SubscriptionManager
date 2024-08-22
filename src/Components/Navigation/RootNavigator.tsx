@@ -3,22 +3,19 @@ import useSession from '../../hooks/useSession'
 import { NavigationContainer } from '@react-navigation/native'
 import HomeScreen from '../../Pages/Home/HomeScreen'
 import AuthScreen from '../../Pages/Auth/AuthScreen'
-import { NavigationNames } from '../../utils/stackNavigatorNames'
-import { useEffect, useState } from 'react'
-import auth from '@react-native-firebase/auth'
+import { APP_ROUTES } from '../../utils/appRoutes'
 import { GoogleSingInConfigs } from '../../configs/GoogleSingInConfig'
 import { GoogleSignin } from '@react-native-google-signin/google-signin'
-import { View } from 'react-native'
+import { Text } from '@ui-kitten/components'
 export default function RootNavigation() {
     const { user, isLoading } = useSession()
     const Stack = createNativeStackNavigator()
     GoogleSignin.configure(GoogleSingInConfigs)
-    if (isLoading) return null
-
+    if (isLoading) return <Text>Loading...</Text>
     return (
         <NavigationContainer>
             <Stack.Navigator
-                initialRouteName={user ? NavigationNames.HOME : NavigationNames.AUTH}
+                initialRouteName={user ? APP_ROUTES.HOME : APP_ROUTES.AUTH}
                 screenOptions={{
                     headerShown: false,
                     animation: 'slide_from_left',
@@ -26,9 +23,9 @@ export default function RootNavigation() {
                 }}
             >
                 {user ? (
-                    <Stack.Screen name={NavigationNames.HOME} component={HomeScreen} />
+                    <Stack.Screen name={APP_ROUTES.HOME} component={HomeScreen} />
                 ) : (
-                    <Stack.Screen name={NavigationNames.AUTH} component={AuthScreen} />
+                    <Stack.Screen name={APP_ROUTES.AUTH} component={AuthScreen} />
                 )}
             </Stack.Navigator>
         </NavigationContainer>
