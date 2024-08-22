@@ -1,15 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import type { ReactNode } from 'react'
-import { SafeAreaView, StatusBar, Text, useColorScheme, View } from 'react-native'
+import { SafeAreaView, StatusBar } from 'react-native'
 import RootNavigation from './Components/Navigation/RootNavigator'
+import * as eva from '@eva-design/eva'
+import { ApplicationProvider, Layout, Text } from '@ui-kitten/components'
 const App: () => ReactNode = () => {
-    const isDarkMode = useColorScheme() === 'dark'
-
     return (
-        <SafeAreaView className={'h-screen w-screen'}>
-            <StatusBar barStyle={'default'} />
-            <RootNavigation />
-        </SafeAreaView>
+        <ApplicationProvider {...eva} theme={eva.light}>
+            <SafeAreaView>
+                <StatusBar barStyle={'default'} />
+                <Text>KEK</Text>
+                <RootNavigation />
+            </SafeAreaView>
+        </ApplicationProvider>
     )
 }
 
