@@ -26,7 +26,7 @@ export default function AuthScreen({ navigation }: { navigation: any }) {
         <ImageOverlay style={styles.container} source={require('../../assets/backgrounds/auth-background.jpg')}>
             <View style={styles.headerContainer}>
                 <Text category="h1" status="control">
-                    Subscription Manager
+                    Hello there!
                 </Text>
                 <Text style={{ paddingTop: 16 }} category="h6" status="control">
                     Sign in to your account

@@ -1,4 +1,8 @@
 export enum APP_ROUTES {
+    PRINCIPAL = 'Principal',
+    AUTH = 'Auth',
     HOME = 'Home',
-    AUTH = 'Auth'
+    STATS = 'Statistics',
+    CALENDAR = 'Calendar',
+    ADD_SERVICE = 'Add Service'
 }
