@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { Divider, List, Text } from '@ui-kitten/components'
 import { ScrollView, StyleSheet, View } from 'react-native'
 import { ListItem } from './ListItem' // assuming both components are in the same directory
-import { getAllServicesLogoUrls } from '../../utils/firebase_storage/FirebaseStorage'
 import { format } from 'date-fns'
+import { getObjectValueData } from '../../common/utils/async_storage/AsyncStorage'
+import { useAtom } from 'jotai'
+import { servicesLogoAtom } from '../../common/atoms/useServicesLogoAtom'
 interface IListItem {
     title: string
     description: string
@@ -17,12 +19,7 @@ type GroupedList = {
 }
 
 export const CustomList = () => {
-    const [services, setService] = useState<{ name: string; url: string }[]>()
-
-    useEffect(() => {
-        getAllServicesLogoUrls().then((items) => setService(items))
-    }, [])
-
+    const [services] = useAtom(servicesLogoAtom)
     const items = services?.map((item, index) => {
         let unixMockDate = 1724644000
 
@@ -79,7 +76,7 @@ export const CustomList = () => {
                         </Text>
                         <Divider />
                         {item.items.map((item, index2) => (
-                            <ListItem {...item} index={index2} />
+                            <ListItem {...item} key={item.title} />
                         ))}
                     </View>
                 )

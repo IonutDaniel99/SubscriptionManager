@@ -53,7 +53,7 @@ export const TopNavigationBar = ({
     }
     const renderBackAction = (): TouchableWebElement => {
         if (!displayBackButton) return <></>
-        return <TopNavigationAction icon={BackIcon} onPress={navigation?.goBack} />
+        return <TopNavigationAction icon={BackIcon} onPress={() => navigation?.navigate(APP_ROUTES.HOME as never)} />
     }
 
     return (

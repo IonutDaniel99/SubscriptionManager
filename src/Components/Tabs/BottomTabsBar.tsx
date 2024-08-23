@@ -26,8 +26,8 @@ export const BottomTabsBar = ({ navigation, state }: BottomTabBarProps): React.R
     return (
         <Animated.View>
             <BottomNavigation selectedIndex={state.index} onSelect={onSelect}>
-                <BottomNavigationTab title={APP_ROUTES.HOME} icon={HouseIcon} />
                 <BottomNavigationTab title={APP_ROUTES.CALENDAR} icon={CalendarIcon} />
+                <BottomNavigationTab title={APP_ROUTES.HOME} icon={HouseIcon} />
                 <BottomNavigationTab title={APP_ROUTES.STATS} icon={StatsIcon} />
             </BottomNavigation>
         </Animated.View>

@@ -12,6 +12,7 @@ import HomeScreen from '../../Pages/Home/HomeScreen'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import ProfileContentScreen from '../../Pages/ProfileContent/ProfileContentScreen'
 import { StatusBar } from 'react-native'
+import AddSubscriptionScreen from '../../Pages/AddSubscription/AddSubscription'
 
 GoogleSignin.configure(GoogleSingInConfigs)
 
@@ -33,11 +34,12 @@ export default function RootNavigation() {
                 }}
             >
                 {/* VISIBLE BAR PAGES */}
-                <Screen name={APP_ROUTES.HOME} component={HomeScreen} />
                 <Screen name={APP_ROUTES.CALENDAR} component={CalendarScreen} />
+                <Screen name={APP_ROUTES.HOME} component={HomeScreen} />
                 <Screen name={APP_ROUTES.STATS} component={StatisticsScreen} />
                 {/* Triggered Pages */}
                 <Screen name={APP_ROUTES.PROFILE} component={ProfileContentScreen} />
+                <Screen name={APP_ROUTES.ADD_SUBSCRIPTION} component={AddSubscriptionScreen} />
                 {/* AUTH */}
                 <Screen name={APP_ROUTES.AUTH} component={AuthScreen} />
             </Navigator>

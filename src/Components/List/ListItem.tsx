@@ -16,13 +16,7 @@ interface IListItemProps extends ListItemProps {
     imageUrl: string
 }
 
-export const ListItem = ({
-    title,
-    description,
-    imageUrl,
-    index,
-    ...props
-}: IListItemProps & { index: number }): React.ReactElement => {
+export const ListItem = ({ title, description, imageUrl, ...props }: IListItemProps): React.ReactElement => {
     const renderItemIcon = (props: IconProps): IconElement => (
         <Avatar source={{ uri: imageUrl }} size="large" style={styles.avatar} shape="square" />
     )
@@ -39,7 +33,7 @@ export const ListItem = ({
         <UIKittenListItem
             style={styles.container}
             title={`${title}`}
-            description={`${Math.floor(Math.random() * 100)} $`}
+            description={`${Math.floor(Math.random() * 100) + 1} $`}
             accessoryLeft={renderItemIcon}
             accessoryRight={renderItemAccessory}
             {...props}
