@@ -2196,6 +2196,11 @@
   dependencies:
     plist "^3.1.0"
 
+"@react-native-firebase/storage@^20.4.0":
+  version "20.4.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/storage/-/storage-20.4.0.tgz#9e5821ed53a93b4f8523b14553a4ac427d54a292"
+  integrity sha512-aqrg+Uo56hOODWjdnJddzFtMXZKj344Yv07R5VYcZOF9RMCMUyYTSPemG0k2tCrPoQnwl9ESWSlPqnUOUQskRg==
+
 "@react-native-google-signin/google-signin@^12.2.1":
   version "12.2.1"
   resolved "https://registry.yarnpkg.com/@react-native-google-signin/google-signin/-/google-signin-12.2.1.tgz#242247ab18ea7bb3a1dcabb50df7ad236f104294"

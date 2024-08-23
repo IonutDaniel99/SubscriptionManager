@@ -7,6 +7,8 @@ import { NavigationProp } from '@react-navigation/native'
 import { TopNavigationBar } from '../../Components/Tabs/TopNavigation'
 
 export default function StatisticsScreen({ navigation }: { navigation: NavigationProp<any> }) {
+    const themeContext = React.useContext(ThemeContext)
+
     return (
         <>
             <TopNavigationBar navigation={navigation} displayProfileIcon title={`Statistics`} />
@@ -14,6 +16,9 @@ export default function StatisticsScreen({ navigation }: { navigation: Navigatio
                 <Text style={styles.text} category="h1">
                     Welcome to Calendar
                 </Text>
+                <Button style={{ marginVertical: 4 }} onPress={themeContext.toggleTheme}>
+                    TOGGLE THEME
+                </Button>
             </Layout>
         </>
     )

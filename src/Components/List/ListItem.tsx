@@ -8,26 +8,34 @@ import {
     IconProps,
     Avatar
 } from '@ui-kitten/components'
+
 interface IListItemProps extends ListItemProps {
     title: string
     description: string
+    imageUrl: string
 }
 
 export const ListItem = ({
     title,
     description,
+    imageUrl,
     index,
     ...props
 }: IListItemProps & { index: number }): React.ReactElement => {
-    const renderItemIcon = (props: IconProps): IconElement => (
-        <Avatar source={require('../../assets/servicesLogos/netflix.png')} />
-    )
-    const renderItemAccessory = (): React.ReactElement => <Button size="tiny">FOLLOW</Button>
+    const renderItemIcon = (props: IconProps): IconElement => <Avatar source={{ uri: imageUrl }} />
+    const renderItemAccessory = (props: IconProps): React.ReactElement => {
+        return (
+            <>
+                <Icon {...props} name="edit-outline" />
+                <Icon {...props} name="trash-outline" />
+            </>
+        )
+    }
 
     return (
         <UIKittenListItem
-            title={`${title} ${index + 1}`}
-            description={`${description} ${index + 1}`}
+            title={`${title}`}
+            description={`15 $`}
             accessoryLeft={renderItemIcon}
             accessoryRight={renderItemAccessory}
             {...props}

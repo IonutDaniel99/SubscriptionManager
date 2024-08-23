@@ -6,6 +6,7 @@ import { ThemeContext } from '../../context/theme-context'
 import { TopNavigationBar } from '../../Components/Tabs/TopNavigation'
 import { NavigationProp } from '@react-navigation/native'
 import { CustomList } from '../../Components/List/List'
+import { getAllServicesLogoUrls, getServicesLogoImageUrl } from '../../utils/firebase_storage/FirebaseStorage'
 interface IHomeScreen {
     navigation: NavigationProp<any>
 }
