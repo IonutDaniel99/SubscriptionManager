@@ -3,16 +3,18 @@ import useSession from '../../hooks/useSession'
 import { Button, Layout, Text } from '@ui-kitten/components'
 import { StyleSheet } from 'react-native'
 import { ThemeContext } from '../../context/theme-context'
-import { NavigationProp } from '@react-navigation/native'
 import { TopNavigationBar } from '../../Components/Tabs/TopNavigation'
-
-export default function StatisticsScreen({ navigation }: { navigation: NavigationProp<any> }) {
+import { NavigationProp } from '@react-navigation/native'
+interface IProfileContentScreen {
+    navigation: NavigationProp<any>
+}
+export default function ProfileContentScreen({ navigation }: IProfileContentScreen) {
     return (
         <>
-            <TopNavigationBar navigation={navigation} displayProfileIcon title={`Statistics`} />
+            <TopNavigationBar navigation={navigation} displayBackButton title={'Profile'} />
             <Layout style={styles.container}>
                 <Text style={styles.text} category="h1">
-                    Welcome to Calendar
+                    About
                 </Text>
             </Layout>
         </>

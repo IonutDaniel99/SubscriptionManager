@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
-import { currentUserAtom } from '../atoms/useCurrentUserAtom'
+import { currentUserAtom } from '../common/atoms/useCurrentUserAtom'
 import { useAtom } from 'jotai'
 import { GoogleSignin } from '@react-native-google-signin/google-signin'
 import { CustomShowToast } from '../Components/Toast/ToastComponent'
 import auth from '@react-native-firebase/auth'
 import { useNavigation } from '@react-navigation/native'
-import { APP_ROUTES } from '../utils/appRoutes'
+import { APP_ROUTES } from '../common/enums/appRoutes'
 
 const useSession = () => {
     const [isLoading, setIsLoading] = useState(true)
